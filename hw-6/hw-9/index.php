@@ -10,21 +10,47 @@ function fileread() {
     
     $file_array = file("/home/isakoval/Desktop/A-level/hw-6/hw-9/text.txt"); //Считывание файла в массив $file_array
  
-        if (!file_exists("/home/isakoval/Desktop/A-level/hw-6/hw-9/newtext.txt")) {  //if no such file 
+    $newfilepass = "/home/isakoval/Desktop/A-level/hw-6/hw-9/newtext.txt";
+
+    $newfile = ""; //создаем файл
+
+        if (!file_exists($newfilepass)) {  //if no such file 
                 
-                $createfile = fopen($file_array, "w"); //создаем файл
+            $newfile = fopen($newfilepass, "w"); //создаем файл
 
-                $newfile = fopen("/home/isakoval/Desktop/A-level/hw-6/hw-9/newtext.txt", "a+");// Открываем файл в режиме записи
-            }
-        
-        for($i = 0; $i == $file_array; $i +=2) {
+               // $newfileArr = fopen($newfilepass, "a+");// Открываем файл в режиме записи
+            };
+         
+        for($i = 0; $i < count($file_array); $i+=2) {
 
-            $newfile = fwrite($file_array, $i);// Запись в файл
-            print("hello");
+            print_r("hello");
+
+            $string = $file_array[$i];
+
+            $newarray = fwrite($newfile, $string);// Запись в файл
         };
         
-
     // fclose($newfile);
 };
 
 fileread("text.txt");
+
+//Функцией прочесть из файла все строки. 
+//Другой функцией померять длину каждой строки. 
+//Третьей функцией записать в совершенно другой файл только те строки, которые длиннее средней длины по файлу.
+
+
+
+// function readAllStrings() {
+    
+//         $file = fopen('/home/isakoval/Desktop/A-level/hw-6/hw-9/newtext.txt', 'r+');
+        
+//         $newArr = file('/home/isakoval/Desktop/A-level/hw-6/hw-9/newtext.txt');
+
+//         while(!feof($file)) {
+//             $a = fgets($file);
+//         };
+//     fclose($file);
+
+//     }
+//   readAllStrings();
