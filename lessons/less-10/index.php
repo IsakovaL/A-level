@@ -46,21 +46,21 @@ $result2 = $res2;
 
 
 
-    if($result1 == $c[0]) {
+    if ($result1 == $c[0]) {
 
-        echo "\n true \n";
+        echo "\n true1 \n";
 
         } else {
-            
-            echo"\n false \n";
+
+            echo"\n false1 \n";
         };
 
         if ($result2 == $c[1]) {
 
-            echo "\n true1 \n";
+            echo "\n true2 \n";
         } else {
 
-            echo"\n false \n";
+            echo"\n false2 \n";
         };
 
 };
