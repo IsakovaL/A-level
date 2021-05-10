@@ -15,54 +15,82 @@
 // .....
 // Задача: проверить каждую строку файла, если строка записана верно, вывести ее и после написать True, если строка не верна, вывести результат с пометкой False.
 
-$filepath ="/home/isakoval/Desktop/A-level/lessons/less-10/file.txt";
+// $filepath ="/home/isakoval/Desktop/A-level/lessons/less-10/file.txt";
 
-$array = file($filepath);
+// $array = file($filepath);
 
-foreach ($array as $str) {
-    $a = explode(';', $str);
+// foreach ($array as $str) {
+    
+//     $a = explode(';', $str);
 
-    $b = explode(" ", $a[0]);
+//     $b = explode(" ", $a[0]);
 
-    $c = explode(" ", $a[1]);
+//     $c = explode(" ", $a[1]);
 
    
-    // print_r($b);
+//     // print_r($b);
     
 
 
-$countArr = count($b);
-$arrSum = array_sum($b);
+// $countArr = count($b);
+// $arrSum = array_sum($b);
 
-$res1 = (int)($arrSum / $countArr);
-$result1 = round($res1, 0, PHP_ROUND_HALF_DOWN);
-
-
-
-$res2 = (int)($arrSum % $countArr);
-$result2 = $res2;
-
-//print_r("\n$result1 $result2\n");
+// $res1 = (int)($arrSum / $countArr);
+// $result1 = round($res1, 0, PHP_ROUND_HALF_DOWN);
 
 
 
-    if ($result1 == $c[0]) {
+// $res2 = (int)($arrSum % $countArr);
+// $result2 = $res2;
 
-        echo "\n true1 \n";
-
-        } else {
-
-            echo"\n false1 \n";
-        };
-
-        if ($result2 == $c[1]) {
-
-            echo "\n true2 \n";
-        } else {
-
-            echo"\n false2 \n";
-        };
-
-};
+// //print_r("\n$result1 $result2\n");
 
 
+
+//     if ($result1 == $c[0]) {
+
+//         echo "\n true1 \n";
+
+//         } else {
+
+//             echo"\n false1 \n";
+//         };
+
+//         if ($result2 == $c[1]) {
+
+//             echo "\n true2 \n";
+//         } else {
+
+//             echo"\n false2 \n";
+//         };
+
+// };
+
+
+// Задача 1. Курьер
+
+// Вам известен номер квартиры, этажность дома и количество квартир на этаже. 
+// Задача: написать функцию, которая по заданным параметрам напишет вам, 
+// в какой подъезд и на какой этаж подняться, чтобы найти искомую квартиру.
+
+$flat = 67;
+$floors = 9;
+$flatsFloor = 4;
+
+$flatsEntrance = (int)$floors * (int)$flatsFloor;
+
+$entranceNumber = (int)($flat / $flatsEntrance);
+
+$entranceNumberCheck = round($entranceNumber, 0);
+
+if($entranceNumberCheck % 2 != 0) {
+
+    echo("\n entrance 1 \n");
+
+} else echo("\n entrance 2");
+
+if($flat % $flatsEntrance / $flatsFloor  == 0) {
+
+    echo("\n flat is on the last floor \n");
+
+} else echo("\n flat is on the next floor \n");
