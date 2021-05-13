@@ -72,8 +72,11 @@ $result2 = $res2;
 // Вам известен номер квартиры, этажность дома и количество квартир на этаже. 
 // Задача: написать функцию, которая по заданным параметрам напишет вам, 
 // в какой подъезд и на какой этаж подняться, чтобы найти искомую квартиру.
+echo "Give me a number:\n";
+$handle = fopen("php://stdin","r");
+$flat = intval(fgets($handle));
 
-$flat = 67;
+// $flat = 67;
 $floors = 9;
 $flatsFloor = 4;
 
@@ -83,11 +86,16 @@ $entranceNumber = (int)($flat / $flatsEntrance);
 
 $entranceNumberCheck = round($entranceNumber, 0);
 
-if($entranceNumberCheck % 2 != 0) {
+if($entranceNumberCheck % $floors == 0) {
 
     echo("\n entrance 1 \n");
 
-} else echo("\n entrance 2");
+} 
+elseif ($entranceNumberCheck % $floors != 0) {
+
+} echo("\n entrance 2");
+
+elseif  echo("\n entrance 2");
 
 if($flat % $flatsEntrance / $flatsFloor  == 0) {
 
