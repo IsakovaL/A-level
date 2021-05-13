@@ -1,33 +1,33 @@
 <?php
 
-// function beautyName($name){
-//     return ucfirst(strtolower($name));
-// }
+function beautyName($name){
+    return ucfirst(strtolower($name));
+}
 
-// echo "Dratuti!";
+echo "Dratuti!";
 // // 1. Создайте массив для хранения городов. 
 // // Вводите города из консоли в цикле, добавляйте в массив. 
 // // Когда введут 1, выводите весь массив, на этом программа завершается.
 
-// $cities = [];
+$cities = [];
 
-// $input = fopen("php://stdin","r");//potok vvoda
+$input = fopen("php://stdin","r");//potok vvoda
 
-// while(true) {
+while(true) {
 
-//     $cityName = fgets($input);// what we get from console we write to variable $cityName
+    $cityName = fgets($input);// what we get from console we write to variable $cityName
 
-//     if((int)$cityName === 1) break;
+    if((int)$cityName === 1) break;
 
-//     else {
-//         $a = explode(" ", $cityName);
-//         $a = array_map("beautyName", $a);
-//         $cities[] = implode(" ", $a);
-//     }
+    else {
+        $a = explode(" ", $cityName);
+        $a = array_map("beautyName", $a);
+        $cities[] = implode(" ", $a);
+    }
 
-// }
+}
 
-// print_r($cities);
+print_r($cities);
 
 // 2. Улучшайте программу с городами. Теперь вне зависимости от того, 
 // какими символами написан город, все буквы в его названии должны быть 
@@ -38,22 +38,22 @@
 // Вызывайте ее с массивом целых чисел, возвращайте среднее. 
 // Считать руками, без специальных математических функций.
 
-// $array = [1,2,3,4,5,6,7];
+$array = [1,2,3,4,5,6,7];
 
-// function countNum($array) {
+function countNum($array) {
 
-//     $sum = array_sum($array);
-//     $coutElements = count($array);
-//     $avNum = $sum / $coutElements;
-//     echo($avNum);
-// }
-// countNum($array);
+    $sum = array_sum($array);
+    $coutElements = count($array);
+    $avNum = $sum / $coutElements;
+    echo($avNum);
+}
+countNum($array);
 
 // 4. Напишите программу, которая выводит сама себя в консоль. 
 // (смотреть на массив $argv и работу с файлами, программа ведь хранится в файле)
 
-// $textFile = file($argv[0]);
-// print_r($textFile);
+$textFile = file($argv[0]);
+print_r($textFile);
 
 // 5. Создайте двумерный список студентов, ключ - фамилия, значение - масив оценок. 
 // Выведите красиво.
