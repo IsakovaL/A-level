@@ -1,5 +1,6 @@
 <?php
 
+// ----------------Первый уровень ----------------
 // Написать программу, которая открывает файл, считывает оттуда данные, 
 // закрывает файл, создает другой файл, записывает туда данные через строку 
 // (первую пишет, вторую нет, третью пишет, четвертую нет и т.д.), закрывает файл. 
@@ -47,47 +48,75 @@
 //     file_write($new);
 
 
-//---------------------------------------------------
+//----------------Второй уровень---------------------------------------------
 
 //Функцией прочесть из файла все строки. 
 //Другой функцией померять длину каждой строки. 
-//Третьей функцией записать в совершенно другой файл только те строки, которые длиннее средней длины по файлу.
-
-$handle = fopen("php://stdin","r");
-$input = (int)fgets($handle);
+//Третьей функцией записать в совершенно другой файл только те строки, 
+//которые длиннее средней длины по файлу.
+//--------------------------------------------------------------------------
+//Функцией прочесть из файла все строки: 
 
 $file_path = "/home/isakoval/Desktop/A-level/homework/hw-9/text.txt";
+$new_file_path = "/home/isakoval/Desktop/A-level/homework/hw-9/new-text.txt";
 
- function readAllStrings() {
+
+ function readAllStrings($path) {
+     $array = file($path);
+     return $array;
     
-    $opn_file = fopen($file_path, 'r+');
-        
-        while(!feof($opn_file)) {
+ };
+//Другой функцией померять длину каждой строки: 
 
-            $read_file = fgets($opn_file);
-
-        }
-    fclose($opn_file);
-
+ function getStrLen($string) {
+     return strlen($string);
  };
 
+ //Третьей функцией записать в совершенно другой файл только те строки, 
+//которые длиннее средней длины по файлу
 
-    $file_path = "/home/isakoval/Desktop/A-level/homework/hw-9/text.txt";
-    $strings_array = file($file_path);
+function writeToFile($new_file_path, $array) {
 
-    $strings_array = file($file_path);
-    $aaa = fgets($file_path);
+    $newFile = fopen($new_file_path, "w");
 
-    print_r($strings_array);
+    $totalLen = 0;
 
+    for($i=0; $i < count($array);$i++) {
+
+        $currentRow = $array[$i];
+
+        $currentRowLeng = getStrLen($currentRow);
+
+        $totalLen = $totalLen + $currentRowLeng;
+
+    };
+
+    $averageStrLen = $totalLen / count($array);
+
+    for($i=0;$i<count($array);$i++) {
+
+       $currentRow = $array[$i];
+
+       $currentRowLeng = getStrLen($currentRow);
+
+            if($currentRowLeng > $averageStrLen) {
+
+                fwrite($newFile, $currentRow);
+            };
+
+    };
+};
+
+    $fileArray = readAllStrings($file_path);
+
+    writeToFile($new_file_path, $fileArray);
+    
    
     
-    //  foreach ($strings_array as $key => $str) {
+    
+//-----------------Третий уровень---------------
 
-    //     $str1 = explode(" ", $strings_array[0]);
-   
-        
-    // };
-
-    // echo strlen($opn_file);
-
+// Пользуясь имеющимися наработками написать функцию, которая из исходных данных одной 
+// строки получает результаты fizzbuzz. Другая функция должна прочесть из файла множество 
+// строк вида "3 5 18", т.е. исходных данных для fizzbuzz, и записать в другой файл 
+// полученные при помощи первой функции результаты по каждой строке.
