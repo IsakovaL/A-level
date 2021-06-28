@@ -11,10 +11,10 @@
 // console.log(a += b)
 
 // console.log(0.2 + 0.4)
-
-let a = 2
-let b = 3
-console.log(a+++b)
+//
+// let a = 2
+// let b = 3
+// console.log(a+++b)
 
 
 // let ocenka = 2
@@ -61,3 +61,55 @@ console.log(a+++b)
 // let $ = 1
 // let _ = 2
 // console.log($ + _)
+
+
+
+
+
+
+// jQuery.validator.setDefaults({
+//     debug:true,
+//     success: "valid"
+// });
+// $("#myform").validate({
+//     rules:{
+//         field: {
+//             required: true,
+//             email:true
+//         }
+//     },
+//     messages: {
+//         email: "please enter a valid e-mail address"
+//     },
+// });
+
+
+
+function red() {
+    $('h1').css('color', 'red')
+    timeOutGreen()
+}
+function yellow() {
+    $('h1').css('color', 'yellow')
+    yellowToGreen()
+}
+function green() {
+    $('h1').css('color', 'green')
+}
+
+
+function timeOutGreen() {
+    setTimeout(yellow, 5000)
+}
+
+function yellowToGreen() {
+    setTimeout(green, 1000)
+
+}
+
+//=======
+$('.parent > .myClass').css("border", "3px solid red")
+//==================
+
+
+

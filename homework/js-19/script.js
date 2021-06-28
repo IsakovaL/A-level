@@ -109,8 +109,9 @@ function search(arr, find) {
         if (find === arr[i]) {
             num++
         }
-        return `Количество совпадений : ${num}`
+
     }
+    return `Количество совпадений : ${num}`
 }
 
 console.log(search(arr, 5))
