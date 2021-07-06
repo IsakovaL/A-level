@@ -1,0 +1,28 @@
+.form_container {
+    width: 30%;
+    margin: 150px auto 0 auto;
+    border: 3px solid blueviolet;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 15px rgba(137, 43, 226, 0.062);
+}
+.btn-primary {
+    background-color: blueviolet;
+    border: 1px solid transparent;
+    width: 30%;
+    padding: 5px;
+    font-size: 22px;
+}
+.btn-primary:hover {
+    background-color: transparent;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+
+}
+.form-label {
+    font-size: 24px;
+}
+.form-check-input:checked {
+    background-color: blueviolet; 
+    border-color: blueviolet 
+}

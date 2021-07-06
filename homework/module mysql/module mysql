@@ -1,0 +1,123 @@
+1. Создать таблицу, выдающую следующее:
+
+select * from users;
+
+1 | m      | Vasya  | mmm@mail.com
+2 | m      | Alex   | mmm@gmail.com
+3 | m      | Alexey | alexey@gmail.com
+4 | f      | Helen  | hell@gmail.com
+5 | f      | Jenny  | eachup@gmail.com
+6 | f      | Lora   | tpicks@gmail.com
+
+==================================================
+
+mysql> create database module_mysql;
+Query OK, 1 row affected (0,17 sec)
+
+mysql> use module_mysql;
+
+Database changed
+
+mysql> mysql> create table users (
+    -> id int not null auto_increment primary key,
+    -> sex varchar(1) not null default "-",
+    -> user_name varchar(50)not null default "noname",
+    -> user_email varchar(100) not null default "noemail"
+    -> );
+    
+Query OK, 0 rows affected (1,34 sec)
+
+mysql> insert into users (sex, user_name, user_email) values ("m", "Vasya", "mmm
+@mail.com"), ("m", "Alex", "mmm@mail.com");
+Query OK, 2 rows affected (0,11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from users;
++----+-----+-----------+--------------+
+| id | sex | user_name | user_email   |
++----+-----+-----------+--------------+
+|  1 | m   | Vasya     | mmm@mail.com |
+|  2 | m   | Alex      | mmm@mail.com |
++----+-----+-----------+--------------+
+2 rows in set (0,00 sec)
+
+mysql> update users set user_email="mmm@gmail.com" where user_name="Alex";
+Query OK, 1 row affected (0,08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from users;
++----+-----+-----------+---------------+
+| id | sex | user_name | user_email    |
++----+-----+-----------+---------------+
+|  1 | m   | Vasya     | mmm@mail.com  |
+|  2 | m   | Alex      | mmm@gmail.com |
++----+-----+-----------+---------------+
+2 rows in set (0,00 sec)
+
+mysql> insert into users (sex, user_name, user_email) values 
+    -> ("m", "Alexey", "alexey@gmail.com"),
+    -> ("f", "Helen", "hell@gmail.com"),
+    -> ("f", "Jenny", "eachup@gmail.com"),
+    -> ("f", "Lora", "tpicks@gmail.com");
+Query OK, 4 rows affected (0,09 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from users;
++----+-----+-----------+------------------+
+| id | sex | user_name | user_email       |
++----+-----+-----------+------------------+
+|  1 | m   | Vasya     | mmm@mail.com     |
+|  2 | m   | Alex      | mmm@gmail.com    |
+|  3 | m   | Alexey    | alexey@gmail.com |
+|  4 | f   | Helen     | hell@gmail.com   |
+|  5 | f   | Jenny     | eachup@gmail.com |
+|  6 | f   | Lora      | tpicks@gmail.com |
++----+-----+-----------+------------------+
+6 rows in set (0,00 sec)
+
+==========================================================
+
+2. Получить результат вида:
+
+We have 3 boys!
+We have 3 girls!
+
+=======================================================
+
+mysql> select "we have", count(sex), case when sex="m" then "boys" else "girls" end as "gender" from users group by  sex;
++---------+------------+--------+
+| we have | count(sex) | gender |
++---------+------------+--------+
+| we have |          3 | boys   |
+| we have |          3 | girls  |
++---------+------------+--------+
+2 rows in set (0,00 sec)
+
+============================================================
+
+3. Получить результат вида:
+
+This is Vasya, he has email mmm@mail.com
+This is Alex, he has email mmm@gmail.com
+This is Alexey, he has email alexey@gmail.com
+This is Helen, she has email hell@gmail.com
+This is Jenny, she has email eachup@gmail.com
+This is Lora, she has email tpicks@gmail.com
+
+=================================================================
+
+
+mysql> select "This is", user_name, if(sex="m", "he","she") as "gender", "has email" , user_email from users;
++---------+-----------+--------+-----------+------------------+
+| This is | user_name | gender | has email | user_email       |
++---------+-----------+--------+-----------+------------------+
+| This is | Vasya     | he     | has email | mmm@mail.com     |
+| This is | Alex      | he     | has email | mmm@gmail.com    |
+| This is | Alexey    | he     | has email | alexey@gmail.com |
+| This is | Helen     | she    | has email | hell@gmail.com   |
+| This is | Jenny     | she    | has email | eachup@gmail.com |
+| This is | Lora      | she    | has email | tpicks@gmail.com |
++---------+-----------+--------+-----------+------------------+
+6 rows in set (0,00 sec)
+
+

@@ -1,0 +1,71 @@
+mysql> show tables;
++-----------------+
+| Tables_in_films |
++-----------------+
+| actors          |
+| directors       |
+| films           |
++-----------------+
+3 rows in set (0,01 sec)
+
++-----------+--------------+------+-----+------------+----------------+
+| Field     | Type         | Null | Key | Default    | Extra          |
++-----------+--------------+------+-----+------------+----------------+
+| id        | int          | NO   | PRI | NULL       | auto_increment |
+| age       | int          | NO   |     | NULL       |                |
+| name      | varchar(50)  | NO   |     | noname     |                |
+| last_name | varchar(100) | NO   |     | nolastname |                |
++-----------+--------------+------+-----+------------+----------------+
+4 rows in set (0,00 sec)
+
++-----------+--------------+------+-----+------------+----------------+
+| Field     | Type         | Null | Key | Default    | Extra          |
++-----------+--------------+------+-----+------------+----------------+
+| id        | int          | NO   | PRI | NULL       | auto_increment |
+| name      | varchar(100) | NO   |     | noname     |                |
+| last_name | varchar(100) | NO   |     | nolastname |                |
+| age       | int          | NO   |     | NULL       |                |
++-----------+--------------+------+-----+------------+----------------+
+
+mysql> desc films;
++-------------+---------------+------+-----+---------------+----------------+
+| Field       | Type          | Null | Key | Default       | Extra          |
++-------------+---------------+------+-----+---------------+----------------+
+| id          | int           | NO   | PRI | NULL          | auto_increment |
+| film_name   | varchar(200)  | NO   |     | noname        |                |
+| description | varchar(3000) | NO   |     | nodescription |                |
+| year        | int           | NO   |     | NULL          |                |
++-------------+---------------+------+-----+---------------+----------------+
+
+
+mysql> alter table films add column reviews varchar(5000) not null default 'no_description';
+Query OK, 0 rows affected (0,46 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc films;
++-------------+---------------+------+-----+----------------+----------------+
+| Field       | Type          | Null | Key | Default        | Extra          |
++-------------+---------------+------+-----+----------------+----------------+
+| id          | int           | NO   | PRI | NULL           | auto_increment |
+| film_name   | varchar(200)  | NO   |     | noname         |                |
+| description | varchar(3000) | NO   |     | nodescription  |                |
+| year        | int           | NO   |     | NULL           |                |
+| reviews     | varchar(5000) | NO   |     | no_description |                |
++-------------+---------------+------+-----+----------------+----------------+
+
+mysql> alter table actors drop column age;
+Query OK, 0 rows affected (1,43 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc actors;
++-----------+--------------+------+-----+------------+----------------+
+| Field     | Type         | Null | Key | Default    | Extra          |
++-----------+--------------+------+-----+------------+----------------+
+| id        | int          | NO   | PRI | NULL       | auto_increment |
+| name      | varchar(50)  | NO   |     | noname     |                |
+| last_name | varchar(100) | NO   |     | nolastname |                |
++-----------+--------------+------+-----+------------+----------------+
+
+
+
+    
