@@ -59,7 +59,7 @@ class Mammal extends Animal {
 class Cat extends Mammal {
 
         protected $cat_breed;
-        protected $name;
+        public $name;
 
         public function set_breed($cat_breed_value){
             $this->cat_breed = $cat_breed_value;
