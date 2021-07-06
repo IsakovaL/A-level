@@ -1,8 +1,0 @@
-1st string
-3d string
-4th string
-5th string
-6th string
-8th string
-9th string
-10th string
